@@ -9,3 +9,5 @@
 * ``` desc TABLE CATEGORY; ``` shows what properties are in a table
 
 [MySQL commands](https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html)
+
+To run an sql file in the CLI, type ```source <FILENAME>``` and click enter.
