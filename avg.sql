@@ -1,0 +1,1 @@
+select avg(Total) from Invoice;

@@ -1,0 +1,1 @@
+select MAX(HireDate) from Employee;
