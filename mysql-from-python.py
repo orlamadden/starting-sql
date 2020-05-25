@@ -1,21 +1,19 @@
 import os
-import datetime
 import pymysql
 
-# get username
+# Get the username from the Cloud9 workspace
+# (modify this variable if running on another environment)
 username = os.getenv('C9_USER')
 
-# connect to database
-connection = pymysql.connect(host='localhost', user=username, password='', db='Chinook')
+# Connect to the database
+connection = pymysql.connect(host='localhost',
+                             user=username,
+                             password='',
+                             db='Chinook')
 
 try:
-    #Run a query
     with connection.cursor() as cursor:
-        sql = 'SELECT * FROM Genre;'
-        cursor.execute("""CREATE TABLE IF NOT EXISTS
-                          Friends(name char(20), age int, DOB datetime);""")
-        for row in cursor:
-            print(row)
+        rows = cursor.executemany("DELETE FROM Friends WHERE name = %s;", ['bob', 'jim'])
+        connection.commit()
 finally:
-    # close connect regardless of whether above is successful
     connection.close()
